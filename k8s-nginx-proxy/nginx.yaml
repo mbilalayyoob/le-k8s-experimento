@@ -4,7 +4,7 @@ metadata:
   name: nginx
   labels:
     app.kubernetes.io/name: proxy
-  namespace: deployment
+  namespace: default
 spec:
   containers:
   - name: nginx
@@ -14,11 +14,12 @@ spec:
         name: http-web-svc
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
-  namespace: deployment
+  namespace: default
 spec:
   selector:
     app.kubernetes.io/name: proxy
